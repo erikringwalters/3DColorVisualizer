@@ -10,8 +10,8 @@
 	<body>
 		
 		<script src="js/three.js"></script>
-		<!-- <script>import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';</script> -->
-		<!-- <script type="module" src="js/controls.js"></script> -->
+		<script src="//cdn.rawgit.com/mrdoob/three.js/master/build/three.js"></script>
+		<script src="//cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"></script>
 
 
 		<!-- <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/build/three.min.js"></script>
@@ -27,17 +27,17 @@
 
 			function animate() {
 
-	requestAnimationFrame( animate );
+				requestAnimationFrame( animate );
 
-	// required if controls.enableDamping or controls.autoRotate are set to true
-	controls.update();
+				// required if controls.enableDamping or controls.autoRotate are set to true
+				controls.update();
 
-	renderer.render( scene, camera );
+				renderer.render( scene, camera );
 
-}
+			}	
 			const min = 0;
 			const max = 255;
-			var increment = 15;
+			var increment = 50;
 			var scale = increment*0.75;
 
 			for(i = min; i <= max; i+=increment) {
@@ -53,12 +53,12 @@
 					}
 				}
 			}
+
+			controls = new THREE.OrbitControls(camera, renderer.domElement);
+
 			camera.position.x = max/2;
 			camera.position.y = max/2;
 			camera.position.z = max;
-			cameraHeight = camera.position.y;
-
-			
 
 			function animate() {
 				requestAnimationFrame( animate );
